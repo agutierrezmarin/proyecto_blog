@@ -1,0 +1,71 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entornos virtuales
+.env
+.env.*
+venv/
+.venv/
+ENV/
+env/
+
+# =========================
+# Django
+# =========================
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# Archivos de migraciones (opcional)
+# Si trabajas en equipo, NO ignores esto
+# **/migrations/
+# **/migrations/*.py
+# !**/migrations/__init__.py
+
+# =========================
+# Variables sensibles
+# =========================
+.env
+.env.local
+.env.production
+.env.development
+
+# =========================
+# IDEs / Editores
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Sistema operativo
+# =========================
+.DS_Store
+Thumbs.db
+
+# Linux
+*~
+.nfs*
+.directory
+
+# =========================
+# Testing / Coverage
+# =========================
+.pytest_cache/
+.coverage
+htmlcov/
+
+# =========================
+# Build / Packaging
+# =========================
+build/
+dist/
+*.egg-info/
