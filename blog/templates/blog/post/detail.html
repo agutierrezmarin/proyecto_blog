@@ -1,10 +1,29 @@
 {% extends "blog/base.html" %}
+{% load static %}
 
 {% block title %}{{post.title}}{% endblock title %}
 
 
 {% block content %}
-<h1>{{post.title}}</h1>
-<p>Publicado por: {{post.author}} en fecha {{post.publish}}</p>
-<h3>{{post.body|linebreaks}}</h3>
+<div class="container-fluid">
+    <div class="page-head">
+        <h4 class="mt-2 mb-2">Blogger</h4>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-sm-12">
+            <div class="card bg-white m-b-30">
+                <img src="{% static "assets/images/cards/card1.jpg" %} " alt="" class="img-fluid">
+                <div class="card-body">
+                    <div class="card-title mb-4">
+                        <h2>{{post.title}}</h2>
+                    </div>
+                    <h5>Publicado por: {{post.author}} en fecha {{post.publish}}</h5>
+                    <p class="card-text">{{post.body|linebreaks}}</p>
+                    <a href="#" class="btn btn-primary">Volver</a>                                
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
