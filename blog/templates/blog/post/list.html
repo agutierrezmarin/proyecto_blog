@@ -20,7 +20,7 @@
                                 <div class="item-info">
                                     <div class="text-muted">Publicado el {{post.publish}}, por {{post.author}}</div>
                                     <p>
-                                        <a class="text-info" href="{% url 'blog:post_detail' post.id %}">{{post.title}}</a>
+                                        <a class="text-info" href="{{ post.get_absolute_url }}">{{post.title}}</a>
                                     </p>
                                     <p><em>{{post.body|truncatewords:20|linebreaks}}</em></p>
                                 </div>
