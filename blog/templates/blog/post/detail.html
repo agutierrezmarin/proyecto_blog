@@ -19,7 +19,7 @@
                     </div>
                     <h5>Publicado por: {{post.author}} en fecha {{post.publish}}</h5>
                     <p class="card-text">{{post.body|linebreaks}}</p>
-                    <a href="#" class="btn btn-primary">Volver</a>                                
+                    <a href="{% url "blog:post_share" post.id %}" class="btn btn-primary">Compartir Post</a>                                
                 </div>
                 <img src="{% static "images/cards/card2.jpg" %} " alt="" class="img-fluid">
             </div>

@@ -1,0 +1,35 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Compartir el Post{% endblock title %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="page-head">
+        <h4 class="my-2">Comparte este Post</h4>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card m-b-30">
+                <div class="card-body">
+                    <h5 class="header-title pb-3">Envia este post para que otros lo lean</h5>           
+                    {% if sent %}
+                        <h1  class="header-title pb-3">Email enviado correctamente.</h1>
+                        <p>"{{post.title}}" se envio correctamente a {{ form.cleaned_data.to }}.</p>
+                    {% else %}
+                    <div class="general-label">
+                        <h1>Compartir el Post: "{{post.title}}" por email.</h1>
+                        <form role="form" method='post'>
+                            <div class="form-group">
+                            {{ form.as_p }}
+                            {% csrf_token %}
+                            </div>
+                            <input type="submit" class="btn btn-primary" value="Send e-mail" >
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div><!--end row-->
+</div>
+{% endblock content %}
