@@ -1,8 +1,21 @@
-<h2>Adicina nuevo comentario</h2>
-<form action="{% url "blog:post_comment" post.id %}" method="post">
-    {{form.as_p}}
+<h2>Agregar un nuevo comentario</h2>
+<form action="{% url "blog:post_comment" post.id%}" method="post">
+    <div class="form-group">
+        <label>{{form.label_tag}}</label><br>
+        {{form.name.as_field_group}}
+    </div>
+    <div class="form-group">
+        <label>{{form.label_tag}}</label>
+        <br>
+        {{form.email.as_field_group}}
+    </div>
+    <div class="form-group">
+        <label>{{form.label_tag}}</label>
+        <br>
+        {{form.body.as_field_group}}
+    </div>
     {% csrf_token %}
     <p>
-        <input type="submit" value="Agregar Comentario">
+        <input type="submit" value='Agregar Comentario'>
     </p>
 </form>

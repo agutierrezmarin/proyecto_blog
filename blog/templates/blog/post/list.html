@@ -13,6 +13,9 @@
             <div class="card m-b-30">
                 <div class="card-body">
                     <h5 class="header-title pb-3">Mis Posts</h5>
+                    {% if tag %}
+                        <h2>Posts tagged con: {{tag.name}}</h2>
+                    {% endif %}
                     {% for post in posts %}
                     <div id="user-activities" class="tab-pane">
                         <div class="timeline-2">
@@ -23,6 +26,12 @@
                                         <a class="text-info" href="{{ post.get_absolute_url }}">{{post.title}}</a>
                                     </p>
                                     <p><em>{{post.body|truncatewords:20|linebreaks}}</em></p>
+                                    {% for tag in post.tags.all %}
+                                    <a href="{% url "blog:post_list_by_tag" tag.slug%}">
+                                        {{tag.name}}
+                                    </a>
+                                    {% if not forloop.last %}, {% endif %}
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div>
