@@ -1,4 +1,5 @@
 {% extends "blog/base.html" %}
+{% load blog_tags %}
 {% load static %}
 
 {% block title %}{{post.title}}{% endblock title %}
@@ -18,9 +19,18 @@
                         <h2>{{post.title}}</h2>
                     </div>
                     <h5>Publicado por: {{post.author}} en fecha {{post.publish}}</h5>
-                    <p class="card-text">{{post.body|linebreaks}}</p>
+                    <p class="card-text">{{post.body|markdown}}</p>
                     <a href="{% url "blog:post_share" post.id %}" class="btn btn-primary">Compartir Post</a>                                
                     
+                    <h2>Post Similares</h2>
+                    {% for post in similar_posts  %}
+                    <p>
+                        <a href="{{ post.get_absolute_url}}">{{post.title}}</a>
+                    </p>
+                    {%empty%}
+                    <p>No existe Post similares para este articulo.</p>
+                    {% endfor %}
+
                     {% with comments.count as total_comments %}
                         <h2>{{total_comments}} comentario{{total_comments|pluralize}}<h2>
                     {% endwith %}
